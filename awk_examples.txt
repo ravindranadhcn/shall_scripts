@@ -1,0 +1,18 @@
+cat <<EOF >>emp.txt
+1001 John sena 40000
+1002 Jafar Iqbal   60000
+1003 Meher Nigar   30000
+1004 Jonny Liver   70000
+EOF
+
+awk '{print $0}' emp.txt  is equal to awk '{print}' emp.txt
+
+awk '/1002/{print}' emp.txt  ## Print only matching line.
+
+awk '{print $1,$NF}' emp.txt ## print First and Last fields of the file.
+
+
+
+awk '{printf "%10s\n", $1}' emp.txt  "%10s\n" means that the output will be 10 characters long. If the value of the output is less than 10 characters then the spaces will be added at the front of the value.
+
+##https://linuxhint.com/20_awk_examples/
