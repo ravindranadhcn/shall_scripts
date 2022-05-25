@@ -16,3 +16,9 @@ awk '{print $1,$NF}' emp.txt ## print First and Last fields of the file.
 awk '{printf "%10s\n", $1}' emp.txt  "%10s\n" means that the output will be 10 characters long. If the value of the output is less than 10 characters then the spaces will be added at the front of the value.
 
 ##https://linuxhint.com/20_awk_examples/
+
+awk '/John/$4=$4+400; print$0}' emp.txt   ## It prints only matched line with updated calculation
+
+awk '/John/{$4=$4+400} {print $0}' rmp.txt  ## it prints all lines but calcuttion happens on matched lines  only
+
+awk '/Meher/{$4=$4+400} /Jonny/{$2="Sony"; $4=$4+300 } {print $0} emp.txt
