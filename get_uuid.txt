@@ -1,0 +1,11 @@
+A few options on Linux-based systems to get the FS UUID:
+
+fs_uuid=$(blkid -o value -s UUID /dev/sdb1)
+fs_uuid=$(lsblk -no UUID /dev/sdb1)
+fs_uuid=$(udevadm info -n sdb1 -q property | sed -n 's/^ID_FS_UUID=//p')
+fs_uuid=$(find /dev/disk/by-uuid -lname '*/sdb1' -printf %f)
+The first one may require superuser privileges or at least the right to read the device.
+
+If the filesystem is mounted, you can also use:
+
+fs_uuid=$(findmnt -fn -o UUID /dev/sdb1)
