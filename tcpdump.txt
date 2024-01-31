@@ -1,0 +1,8 @@
+
+https://developer.apple.com/documentation/network/recording_a_packet_trace
+
+sudo tcpdump -i en0 -w trace.pcap
+
+
+othre terminal 
+traceroute <dest ip address>
