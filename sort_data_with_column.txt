@@ -1,0 +1,15 @@
+cat > data.txt << EOF
+name,location,capital,profit-lost,revenue,employees,year
+company1,location1,35527.19,-33226.25,,0.70,2020
+company2,location2,-155921.70,-146.03,,,2020
+company3,location3,1873134.74,778424.56,13320152.32,16.90,2020
+company4,location4,1050987.60,426317.61,,24.90,2021
+company5,location5,368506.18,11997.04,,,2019
+company6,location6,7965648.89,369947.14,64413602.44,103.30,2019
+company7,location7,1531534.27,125750.94,3054307.36,12.10,2020
+company8,location8,6161574.62,906591.96,124804038.64,51.30,2021
+EOF
+
+{ head -n 1; sort -t, -k5,5rn; } <  data.txt
+
+awk -F, 'FNR==1{print; next} {print|"sort -t, -nk5,5rn"}' data.txt
