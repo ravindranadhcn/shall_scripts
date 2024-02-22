@@ -1,2 +1,16 @@
 list of file remove replace space with _ in file names.
 for f in *\ *; do mv "$f" "${f// /_}"; done
+
+
+
+An easy alternative to recursive version is to increase the range of for loop step by step(n times for n sub-levels irrespective of number of sub-directories at each level). i.e from the outermost directory run these.
+
+for f in *; do mv "$f" "${f// /_}"; done 
+for f in */*; do mv "$f" "${f// /_}"; done 
+for f in */*/*; do mv "$f" "${f// /_}"; done 
+
+To check/understand what's being done, run the following before and after the above steps.
+for f in *;do echo $f;done 
+for f in */*;do echo $f;done 
+for f in */*/*;do echo $f;done
+
